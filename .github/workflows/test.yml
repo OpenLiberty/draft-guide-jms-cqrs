@@ -62,6 +62,8 @@ jobs:
           sudo cat "$logsPath" | sudo grep Launching
           logsPath=$(sudo find . -name "console.log" | grep system);
           sudo cat "$logsPath" | sudo grep Launching
+          sudo chmod -R a+xr system/target
+          sudo chmod -R a+xr inventory/target
       - name: Archive finish inventory logs if failed
         if: failure()
         uses: actions/upload-artifact@v4
